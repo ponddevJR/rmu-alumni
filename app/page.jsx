@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Login from "@/components/page/login";
 import AlumniesSearch from "@/components/page/alumnies-search.jsx";
+import { AuthServices } from "@/services/auth";
 
 const FirstPage = () => {
   // แสดงผล dialog
