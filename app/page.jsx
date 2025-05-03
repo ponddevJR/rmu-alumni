@@ -1,18 +1,22 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Login from "@/components/page/login"
+import Login from "@/components/page/login";
+import AlumniesSearch from "@/components/page/alumnies-search.jsx"
 
 const FirstPage = () => {
+  // แสดงผล dialog
   const [showDialog, setShowDialog] = useState(false);
+  // แสดง components ค้นหารายชื่อศิษย์เก่า
+  const [searchAlumnies,setSearchAlumnies] = useState(false);
 
+  // เซ็ตเวลาแสดงผล dialog ให้แสดงวิดีโอก่อน
   useEffect(() => {
     const timeout = setInterval(() => {
       setShowDialog(true);
     }, 4050);
 
     if (showDialog) return clearInterval(timeout);
-
     return () => clearInterval(timeout); // <-- คืนฟังก์ชันนี้เพื่อ cleanup
   }, [showDialog]);
 
@@ -27,7 +31,9 @@ const FirstPage = () => {
         playsInline
       />
       <div
-        className={`absolute top-0 left-0 w-full h-full ${showDialog && "bg-black/20 backdrop-blur-xs backdrop-saturate-50"} z-10 transition-all duration-500`}
+        className={`absolute top-0 left-0 w-full h-full ${
+          showDialog && "bg-black/20 backdrop-blur-xs backdrop-saturate-50"
+        } z-10 transition-all duration-500`}
       />
 
       {/* พื้นหลังกระจก */}
@@ -35,13 +41,13 @@ const FirstPage = () => {
         className={`
         ${showDialog ? "opacity-100  z-50" : "z-[-1] opacity-0"}
         transition-all duration-800 
-        p-8 rounded-md shadow-lg shadow-gray-700 
-        flex flex-col ld:flex-row gap-1 
+        p-8 py-6 rounded-md shadow-lg shadow-gray-700 
+        flex gap-8 
         bg-white
-        border-b border-white/30  w-4/5 lg:2/3
+        border-b border-white/30  w-7/8 lg:w-1/2
       `}
       >
-        <div className="flex flex-col w-full h-full items-start lg:w-2/3">
+        <div className="flex flex-col w-full  h-full items-start">
           {/* header */}
           <div className="w-full flex gap-2 items-center border-b pb-3 border-[var(--color-secondary)]">
             {/* logo */}
@@ -54,12 +60,21 @@ const FirstPage = () => {
               className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px]"
             />
             <div className="flex flex-col">
-              <label htmlFor="" className="text-xl lg:text-3xl font-bold text-[var(--color-text-main)]">RMU ALUMNI</label>
-              <label htmlFor="" className="text-[0.9rem] lg:text-lg">ระบบศิษย์เก่า มหาวิทยาลัยราชภัฏมหาสารคาม</label>
+              <label
+                htmlFor=""
+                className="text-xl lg:text-3xl font-bold text-[var(--color-text-main)]"
+              >
+                RMU ALUMNI
+              </label>
+              <label htmlFor="" className="text-[0.9rem] lg:text-lg">
+                ระบบศิษย์เก่า มหาวิทยาลัยราชภัฏมหาสารคาม
+              </label>
             </div>
           </div>
 
-          <Login/>
+          {
+            searchAlumnies ? <AlumniesSearch showLogin={() => setSearchAlumnies(false)}/> : <Login showSearchAlumnies={() => setSearchAlumnies(true)}/>
+          }
         </div>
       </div>
     </div>

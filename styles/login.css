@@ -7,6 +7,14 @@
     @apply text-3xl lg:text-4xl font-extrabold text-[var(--color-text-main)] uppercase
 }
 
+/* เลือกรูปแบบการเข้าสู่ระบบ */
+.login-ctg-wrapper{
+    @apply  flex justify-between w-full mt-5 relative before:absolute before:bottom-0 before:h-[2px] before:w-1/2 before:bg-[var(--color-primary)] before:content-['']
+}
+.login-ctg-wrapper button{
+    @apply w-1/2 py-2 hover:bg-[var(--color-bg)] rounded-tl-md rounded-tr-md
+}
+
 /* ฟอร์มเข้าสู่ระบบ */
 .form{
     @apply w-full flex flex-col
@@ -26,14 +34,14 @@
 }
 
 .form .submit-wrapper{
-    @apply mt-8 w-full flex flex-col-reverse gap-3 items-start lg:flex-row lg:items-center justify-between
+    @apply mt-8 w-full flex flex-col-reverse lg:flex-col gap-3 items-start lg:items-end justify-between
 }
 .form .submit-wrapper div{
     @apply w-full items-center flex justify-between
 }
 /* ตรวจสอบรายชื่อศิษย์เก่า */
-.form .submit-wrapper div button{
-    @apply visible lg:invisible text-sm  text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:underline
+.form .submit-wrapper div label{
+    @apply cursor-pointer visible text-sm lg:text-lg  text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:underline
 }
 
 /* เข้าสู่ระบบด้วยช่องทางอื่น */

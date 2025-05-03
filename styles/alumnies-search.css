@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.back-to-login{
+    @apply py-2 px-3 text-[var(--color-text-normal)] bg-[var(--color-text-main)] rounded-md
+}
+
+.title{
+    @apply text-2xl lg:text-4xl font-bold text-[var(--color-text-main)] mt-3
+}
+.description{
+    @apply text-sm lg:text-lg mt-1 text-gray-600
+}
+
+.search-wrapper{
+    @apply rounded-md p-2 border border-[var(--color-text-main)] flex items-center gap-3
+}
+.icon{
+    @apply text-xl lg:text-2xl p-2 rounded-md bg-[var(--color-text-main)] text-[var(--color-text-normal)]
+}
+input{
+    @apply w-full outline-none
+}
+
+.name-wrapper{
+    @apply flex lg:flex-row flex-col lg:gap-4 gap-3 w-full lg:items-center
+}
+
+.list-wrapper{
+    @apply w-full h-[35vh] flex flex-col mt-2 overflow-auto gap-2 grid lg:grid-cols-2  grid-cols-1 gap-2 mt-2
+}
+
+.list{
+    @apply transition-all duration-200 hover:shadow-gray-500 cursor-pointer hover:bg-[var(--color-secondary)] shadow-md p-2 px-4 bg-[var(--color-bg)] flex gap-4 items-center text-sm border border-gray-300 rounded-md
+}
+.list .image-wrapper{
+    @apply w-1/4  h-[11vh]  border border-gray-500 overflow-hidden rounded-full
+}
+.list .info-wrapper{
+    @apply flex flex-col items-start gap-1
+}
+.list .info-wrapper .detail-wrapper{
+    @apply flex items-center gap-1
+}

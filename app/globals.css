@@ -28,11 +28,10 @@ button{
 
 /* ปุ่มหลัก */
 .btn-primary{
-  @apply flex items-center gap-2 py-3 px-5  justify-center
+  @apply flex items-center gap-2 py-3 lg:py-4 justify-center
   rounded-lg text-[var(--color-text-normal)] 
-  bg-[var(--color-text-main)] hover:bg-[var(--color-secondary)]
-  hover:text-[var(--color-text-main)]
-  hover:shadow-md hover:border hover:border-gray-300 hover:shadow-gray-300
+  bg-[var(--color-text-main)] hover:px-12 
+  hover:shadow-md  hover:shadow-gray-500
 }
 /* ปุ่มลบ/ออกจากระบบ */
 .btn-danger{
@@ -42,5 +41,5 @@ button{
 /* input */
 .form-control{
   @apply p-2 border-b-2 border-[var(--color-primary)] outline-none w-full
-  focus:border-none focus:ring focus:ring-[var(--color-primary)] focus:rounded-md transition-all
+   focus:ring focus:ring-[var(--color-primary)] focus:rounded-md transition-all
 }

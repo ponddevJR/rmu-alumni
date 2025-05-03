@@ -3,24 +3,22 @@ import {
   FaArrowRightFromBracket,
   FaEye,
   FaEyeSlash,
-  FaFacebook,
-  FaFacebookF,
-  FaGithub,
-  FaGoogle,
   FaIdCard,
   FaKey,
-  FaKeybase,
   FaLine,
-  FaUser,
+  FaUserSecret,
 } from "react-icons/fa6";
 import "@/styles/login.css";
-import { FaIdCardAlt } from "react-icons/fa";
+import { FaIdCardAlt, FaSignInAlt } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const LoginComponents = () => {
+const LoginComponents = ({showSearchAlumnies}) => {
+  // ซ่อน/แสดงรหัสผ่าน
   const [showPassword, setShowPassword] = useState(false);
+  // รูปแบบการเข้าสู่รระบบ
+  const [isSTDLogin, setIsSTDLogin] = useState(true);
 
   return (
     <>
@@ -37,16 +35,32 @@ const LoginComponents = () => {
         เข้าสู่ระบบเพื่อใช้งาน
       </label>
 
+      {/* เลือกประเภทการล็อกอิน */}
+      <div className={`login-ctg-wrapper ${isSTDLogin ? "before:left-0" : "before:right-0"}`}>
+        <button
+          onClick={() => setIsSTDLogin(true)}
+          className={`${isSTDLogin ? "bg-[var(--color-bg)]" : ""}`}
+        >
+          ศิษย์เก่า/นักศึกษา
+        </button>
+        <button
+          onClick={() => setIsSTDLogin(false)}
+          className={`${!isSTDLogin ? "bg-[var(--color-bg)]" : ""}`}
+        >
+          อาจารย์
+        </button>
+      </div>
+
       {/* username รหัสนักศึกษา */}
       <form className="form">
         <div className="input-wrapper">
           <label htmlFor="" className="">
-            <FaIdCardAlt />
+           {isSTDLogin ? <FaIdCard/> : <FaIdCardAlt/>}
           </label>
           <input
             required
             type="text"
-            placeholder="รหัสนักศึกษา"
+            placeholder={`รหัส${isSTDLogin ? "นักศึกษา" : "อาจารย์"}`}
             className="form-control"
           />
         </div>
@@ -73,11 +87,11 @@ const LoginComponents = () => {
             <Link href="/" className="link">
               ลืมรหัสผ่าน?
             </Link>
-            <button className="">ตรวจสอบรายชื่อศิษย์เก่า</button>
+            <label onClick={showSearchAlumnies} className={`${!isSTDLogin && "hidden"}`}>ตรวจสอบรายชื่อศิษย์เก่า</label>
           </div>
 
-          <button className="btn-primary lg:w-2/3 w-full">
-            <FaArrowRightFromBracket /> เข้าสู่ระบบ
+          <button className="btn-primary w-full">
+            <FaSignInAlt /> เข้าสู่ระบบ
           </button>
         </div>
       </form>
@@ -101,8 +115,11 @@ const LoginComponents = () => {
               className="lg:w-[30px] lg:h-[30px] w-[22px] h-[22px]"
             />
           </button>
-          <button className="">
+          {/* <button className="">
             <FaGithub />
+          </button> */}
+          <button title="สำหรับผู้ดูแลระบบ/เจ้าหน้าที่" className="text-[var(--color-text-main)]">
+            <FaUserSecret/>
           </button>
         </div>
       </div>
