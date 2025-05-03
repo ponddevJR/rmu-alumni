@@ -47,5 +47,5 @@
     @apply flex items-center gap-2
 }
 .other-login-wrapper div button{
-    @apply lg:text-3xl rounded-lg shadow-md shadow-gray-400 text-xl p-2 border-2 border-[var(--color-primary)]
+    @apply lg:text-3xl rounded-lg shadow-md shadow-gray-300 text-xl p-2 border-2 border-[var(--color-primary)]
 }
