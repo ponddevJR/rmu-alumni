@@ -9,7 +9,7 @@ const FirstPage = () => {
   useEffect(() => {
     const timeout = setInterval(() => {
       setShowDialog(true);
-    }, 3800);
+    }, 4000);
 
     if (showDialog) return clearInterval(timeout);
 
