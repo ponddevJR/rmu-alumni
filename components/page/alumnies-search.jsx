@@ -134,55 +134,6 @@ const AlumniesSearch = ({ showLogin }) => {
                 </div>
               </span>
 
-              <span className="list">
-                {/* รูปภาพ */}
-                <div className="w-1/4 h-[10.5vh]  border border-gray-500 overflow-hidden rounded-full">
-                  <Image
-                    alt="alumni-image"
-                    src="/assets/no_image.png"
-                    width={50}
-                    height={50}
-                    priority
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/*รายละเอียด  */}
-                <div className="flex flex-col items-start gap-1">
-                  <span className="flex items-center gap-1">
-                    <label htmlFor="" className="font-bold">
-                      รหัสนักศึกษา:{" "}
-                    </label>
-                    <p>663170010324</p>
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <label htmlFor="" className="font-bold">
-                      ชื่อ-นามสกุล:{" "}
-                    </label>
-                    <p>ปฐมพร วงสุวรรณ</p>
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <label htmlFor="" className="font-bold">
-                      คณะ:{" "}
-                    </label>
-                    <p>เทคโนโลยีสารสนเทศ</p>
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <label htmlFor="" className="font-bold">
-                      สาขา:{" "}
-                    </label>
-                    <p>เทคโนโลยีสารสนเทศ</p>
-                  </span>
-
-                  <span
-                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
-                  >
-                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
-                    <label htmlFor="" className="">
-                      ลงทะเบียนแล้ว
-                    </label>
-                  </span>
-                </div>
-              </span>
             </div>
           </>
         ) : null}
