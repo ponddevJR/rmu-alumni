@@ -14,7 +14,7 @@ const FirstPage = () => {
   useEffect(() => {
     const timeout = setInterval(() => {
       setShowDialog(true);
-    }, 3500);
+    }, 3800);
 
     if (showDialog) return clearInterval(timeout);
     return () => clearInterval(timeout); // <-- คืนฟังก์ชันนี้เพื่อ cleanup

@@ -1,6 +1,5 @@
 "use client";
 import {
-  FaArrowRightFromBracket,
   FaEye,
   FaEyeSlash,
   FaIdCard,
@@ -10,18 +9,30 @@ import {
 } from "react-icons/fa6";
 import "@/styles/login.css";
 import { FaIdCardAlt, FaSignInAlt } from "react-icons/fa";
-import { useState } from "react";
+import useLoginController from "@/controllers/page/login.controller";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 
-const LoginComponents = ({showSearchAlumnies}) => {
-  // ซ่อน/แสดงรหัสผ่าน
-  const [showPassword, setShowPassword] = useState(false);
-  // รูปแบบการเข้าสู่รระบบ
-  const [isSTDLogin, setIsSTDLogin] = useState(true);
+const LoginComponents = ({ showSearchAlumnies }) => {
+  const {
+    showPassword,
+    setIsSTDLogin,
+    setShowPassword,
+    isSTDLogin,
+    handleInput,
+    loginForm,
+    isLoading,
+    handleLogin,
+    checkLogin
+  } = useLoginController();
+
+  // ตรวจสอบเข้าสู่ระบบ
+  useEffect(() => {checkLogin()},[]);
 
   return (
     <>
+    {isLoading && <div className="fixed top-0 left-0 w-full h-full z-50"></div>}
       {/* greeting user */}
       <div className="greeting-wrapper">
         <label htmlFor="" className="text-3xl lg:text-4xl">
@@ -36,7 +47,11 @@ const LoginComponents = ({showSearchAlumnies}) => {
       </label>
 
       {/* เลือกประเภทการล็อกอิน */}
-      <div className={`login-ctg-wrapper ${isSTDLogin ? "before:left-0" : "before:right-0"}`}>
+      <div
+        className={`login-ctg-wrapper ${
+          isSTDLogin ? "before:left-0" : "before:right-0"
+        }`}
+      >
         <button
           onClick={() => setIsSTDLogin(true)}
           className={`${isSTDLogin ? "bg-[var(--color-bg)]" : ""}`}
@@ -52,16 +67,19 @@ const LoginComponents = ({showSearchAlumnies}) => {
       </div>
 
       {/* username รหัสนักศึกษา */}
-      <form className="form">
+      <form className="form" onSubmit={handleLogin}>
         <div className="input-wrapper">
           <label htmlFor="" className="">
-           {isSTDLogin ? <FaIdCard/> : <FaIdCardAlt/>}
+            {isSTDLogin ? <FaIdCard /> : <FaIdCardAlt />}
           </label>
           <input
             required
             type="text"
             placeholder={`รหัส${isSTDLogin ? "นักศึกษา" : "อาจารย์"}`}
             className="form-control"
+            name="cardId"
+            value={loginForm.cardId}
+            onChange={handleInput}
           />
         </div>
 
@@ -78,6 +96,9 @@ const LoginComponents = ({showSearchAlumnies}) => {
             type={showPassword ? "text" : "password"}
             placeholder="รหัสผ่าน"
             className="form-control"
+            name="password"
+            value={loginForm.password}
+            onChange={handleInput}
           />
         </div>
 
@@ -87,11 +108,16 @@ const LoginComponents = ({showSearchAlumnies}) => {
             <Link href="/" className="link">
               ลืมรหัสผ่าน?
             </Link>
-            <label onClick={showSearchAlumnies} className={`${!isSTDLogin && "hidden"}`}>ตรวจสอบรายชื่อศิษย์เก่า</label>
+            <label
+              onClick={showSearchAlumnies}
+              className={`${!isSTDLogin && "hidden"}`}
+            >
+              ตรวจสอบรายชื่อศิษย์เก่า
+            </label>
           </div>
 
           <button className="btn-primary w-full">
-            <FaSignInAlt /> เข้าสู่ระบบ
+            <FaSignInAlt /> {isLoading ? "กำลังตรวจสอบ..." : "เข้าสู่ระบบ"}
           </button>
         </div>
       </form>
@@ -118,8 +144,11 @@ const LoginComponents = ({showSearchAlumnies}) => {
           {/* <button className="">
             <FaGithub />
           </button> */}
-          <button title="สำหรับผู้ดูแลระบบ/เจ้าหน้าที่" className="text-[var(--color-text-main)]">
-            <FaUserSecret/>
+          <button
+            title="สำหรับผู้ดูแลระบบ/เจ้าหน้าที่"
+            className="text-[var(--color-text-main)]"
+          >
+            <FaUserSecret />
           </button>
         </div>
       </div>

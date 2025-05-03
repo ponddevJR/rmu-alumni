@@ -26,7 +26,7 @@
     @apply text-2xl p-2 bg-[var(--color-text-main)] rounded-md text-[var(--color-text-normal)]
 }
 .form .input-wrapper span{
-    @apply absolute top-3 right-2 cursor-pointer
+    @apply absolute top-1 right-0 cursor-pointer z-10 p-2
 }
 /* ลืมรหัสผ่าน? */
 .form .link{

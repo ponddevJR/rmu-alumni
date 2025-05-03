@@ -26,14 +26,14 @@ input{
 }
 
 .list-wrapper{
-    @apply w-full h-[35vh] flex flex-col mt-2 overflow-auto gap-2 grid lg:grid-cols-2  grid-cols-1 gap-2 mt-2
+    @apply w-full h-[34vh] overflow-auto  grid lg:grid-cols-2  grid-cols-1 gap-2 mt-2
 }
 
 .list{
-    @apply transition-all duration-200 hover:shadow-gray-500 cursor-pointer hover:bg-[var(--color-secondary)] shadow-md p-2 px-4 bg-[var(--color-bg)] flex gap-3 items-center text-sm border border-gray-300 rounded-md h-[18vh]
+    @apply transition-all duration-200 hover:shadow-gray-500 cursor-pointer hover:bg-[var(--color-secondary)] shadow-md p-2 px-4 bg-[var(--color-bg)] flex gap-3 items-center text-sm border border-gray-300 rounded-md h-[18.5vh]
 }
 .list .image-wrapper{
-    @apply w-[50px]  h-[7vh]  border border-gray-500 overflow-hidden rounded-full
+    @apply w-[50px]  h-[7vh] lg:w-[65px] lg:h-[9vh]  border border-gray-500 overflow-hidden rounded-full
 }
 .list .info-wrapper{
     @apply flex flex-col items-start gap-1

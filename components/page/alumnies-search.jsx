@@ -2,23 +2,11 @@ import { FaChevronLeft, FaIdCard, FaN, FaPen, FaPerson } from "react-icons/fa6";
 import "@/styles/alumnies-search.css";
 import { FaPenAlt } from "react-icons/fa";
 import Image from "next/image";
-import { useState } from "react";
+import useSearchAluniesController from "@/controllers/page/search-alumnies.controller"
 
 const AlumniesSearch = ({ showLogin }) => {
-  const [searchValue, setSearchValue] = useState({
-    cardID: "",
-    fname: "",
-    lname: "",
-  });
 
-  const handleInputSearch = (e) => {
-    const { name, value } = e.target;
-    setSearchValue((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(searchValue);
-  };
+  const {searchValue,setSearchValue} = useSearchAluniesController();
 
   return (
     <>
