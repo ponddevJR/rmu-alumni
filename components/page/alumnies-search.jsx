@@ -6,7 +6,7 @@ import useSearchAluniesController from "@/controllers/page/search-alumnies.contr
 
 const AlumniesSearch = ({ showLogin }) => {
 
-  const {searchValue,setSearchValue} = useSearchAluniesController();
+  const {searchValue,setSearchValue,handleInputSearch} = useSearchAluniesController();
 
   return (
     <>

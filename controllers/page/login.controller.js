@@ -58,18 +58,6 @@ export default function useLoginController() {
     }
   };
 
-  // ตรวจสอบการ Login
-  const checkLogin = async () => {
-    try {
-      const res = await AuthServices.checkLogin();
-      if(res.data.user){
-        return redirect.push("/dashboard");
-      }
-    } catch (error) {
-      console.error(error);
-      AlertDialog.serverError();
-    }
-  }
 
   return {
     showPassword,
@@ -80,6 +68,5 @@ export default function useLoginController() {
     handleInput,
     handleLogin,
     isLoading,
-    checkLogin
   };
 }

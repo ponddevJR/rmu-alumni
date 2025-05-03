@@ -17,7 +17,7 @@ const useSearchAluniesController = () => {
       };
 
       return {
-        searchValue,setSearchValue
+        searchValue,setSearchValue,handleInputSearch
       }
 }
 export default useSearchAluniesController;

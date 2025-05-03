@@ -24,11 +24,8 @@ const LoginComponents = ({ showSearchAlumnies }) => {
     loginForm,
     isLoading,
     handleLogin,
-    checkLogin
   } = useLoginController();
 
-  // ตรวจสอบเข้าสู่ระบบ
-  useEffect(() => {checkLogin()},[]);
 
   return (
     <>

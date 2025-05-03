@@ -2,16 +2,29 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Login from "@/components/page/login";
-import AlumniesSearch from "@/components/page/alumnies-search.jsx"
+import AlumniesSearch from "@/components/page/alumnies-search.jsx";
 
 const FirstPage = () => {
   // แสดงผล dialog
   const [showDialog, setShowDialog] = useState(false);
   // แสดง components ค้นหารายชื่อศิษย์เก่า
-  const [searchAlumnies,setSearchAlumnies] = useState(false);
+  const [searchAlumnies, setSearchAlumnies] = useState(false);
+
+  // ตรวจสอบการ Login
+  const checkLogin = async () => {
+    try {
+      const res = await AuthServices.checkLogin();
+      if (res.data.user) {
+        return redirect.push("/dashboard");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // เซ็ตเวลาแสดงผล dialog ให้แสดงวิดีโอก่อน
   useEffect(() => {
+    checkLogin();
     const timeout = setInterval(() => {
       setShowDialog(true);
     }, 3800);
@@ -72,9 +85,11 @@ const FirstPage = () => {
             </div>
           </div>
 
-          {
-            searchAlumnies ? <AlumniesSearch showLogin={() => setSearchAlumnies(false)}/> : <Login showSearchAlumnies={() => setSearchAlumnies(true)}/>
-          }
+          {searchAlumnies ? (
+            <AlumniesSearch showLogin={() => setSearchAlumnies(false)} />
+          ) : (
+            <Login showSearchAlumnies={() => setSearchAlumnies(true)} />
+          )}
         </div>
       </div>
     </div>
