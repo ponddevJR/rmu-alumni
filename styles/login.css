@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+.greeting-wrapper{
+    @apply flex gap-1 mt-8 items-end
+}
+.greeting-wrapper label:last-of-type{
+    @apply text-3xl lg:text-4xl font-extrabold text-[var(--color-text-main)] uppercase
+}
+
+/* ฟอร์มเข้าสู่ระบบ */
+.form{
+    @apply w-full flex flex-col
+}
+.form .input-wrapper{
+    @apply w-full flex  items-start lg:items-center gap-2 lg:gap-4  mt-8 
+}
+.form .input-wrapper label{
+    @apply text-2xl p-2 bg-[var(--color-text-main)] rounded-md text-[var(--color-text-normal)]
+}
+.form .input-wrapper span{
+    @apply absolute top-3 right-2 cursor-pointer
+}
+/* ลืมรหัสผ่าน? */
+.form .link{
+    @apply text-sm lg:text-[1rem] text-gray-600 hover:text-[var(--color-text-main)] hover:underline
+}
+
+.form .submit-wrapper{
+    @apply mt-8 w-full flex flex-col-reverse gap-3 items-start lg:flex-row lg:items-center justify-between
+}
+.form .submit-wrapper div{
+    @apply w-full items-center flex justify-between
+}
+/* ตรวจสอบรายชื่อศิษย์เก่า */
+.form .submit-wrapper div button{
+    @apply visible lg:invisible text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:underline
+}
+
+/* เข้าสู่ระบบด้วยช่องทางอื่น */
+.other-login-wrapper{
+    @apply w-full flex flex-col gap-3 items-center mt-10
+}
+.other-login-wrapper label{
+    @apply text-sm lg:text-[1rem] text-gray-700 lg:text-gray-600 pb-3 border-b border-[var(--color-secondary)] w-full text-center
+}
+.other-login-wrapper div{
+    @apply flex items-center gap-2
+}
+.other-login-wrapper div button{
+    @apply lg:text-3xl rounded-lg shadow-md shadow-gray-400 text-xl p-2 border-2 border-[var(--color-primary)]
+}

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* เมนูแสดงเมนู ในขนาดหน้าจออื่นๆ */
+.btn-responsive{
+    @apply fixed top-0 left-0 p-2 text-2xl z-50
+    cursor-pointer hover:shadow-lg font-bold visible lg:invisible
+    transition-all duration-200 rounded-md hover:bg-[var(--color-bg)]
+}
+
+.aside{
+    @apply z-30 bg-white backdrop:backdrop-blur-2xl backdrop-saturate-150 
+    shadow-lg  w-full lg:w-1/5 fixed top-0 left-0  h-full  border-b-2
+    border-[var(--color-border)] flex flex-col p-2 px-3 transition-transform ease-in duration-500 md:translate-x-0
+}
+/* logo */
+.aside .logo-wrapper{
+    @apply w-full flex gap-1 items-center p-2 rounded-md
+    bg-[var(--color-text-main)] mt-10 lg:mt-0
+}
+.aside .logo{
+    @apply w-[70px] h-[70px] lg:w-[60px] lg:h-[60px]
+}
+.aside .text-wrap{
+    @apply flex flex-col text-[var(--color-text-normal)] text-xl lg:text-sm
+}
+.aside .text-wrap label:first-child{
+    @apply lg:text-xl lg:font-bold
+}
+
+
+.aside .menu-wrapper{
+    @apply flex flex-col p-2 gap-1
+}
+.aside .menu-items{
+    @apply py-2 px-4 rounded-md cursor-pointer transition-all duration-200
+    flex items-center gap-4 text-lg lg:text-[1rem] hover:bg-[var(--color-secondary)]
+    hover:text-[var(--color-text-main)]
+}
