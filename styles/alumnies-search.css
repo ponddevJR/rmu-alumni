@@ -33,10 +33,10 @@ input{
     @apply transition-all duration-200 hover:shadow-gray-500 cursor-pointer hover:bg-[var(--color-secondary)] shadow-md p-2 px-4 bg-[var(--color-bg)] flex gap-4 items-center text-sm border border-gray-300 rounded-md
 }
 .list .image-wrapper{
-    @apply w-1/4  h-[11vh]  border border-gray-500 overflow-hidden rounded-full
+    @apply w-[80px]  h-[11vh]  border border-gray-500 overflow-hidden rounded-full
 }
 .list .info-wrapper{
-    @apply flex flex-col items-start gap-1
+    @apply flex flex-col items-start gap-1 text-xs lg:text-sm
 }
 .list .info-wrapper .detail-wrapper{
     @apply flex items-center gap-1
