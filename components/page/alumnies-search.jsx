@@ -126,7 +126,7 @@ const AlumniesSearch = ({ showLogin }) => {
                   <div
                     className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
                   >
-                    <div className="w-3 h-3 bg-green-700 rounded-full ml-1"></div>
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
                     <label htmlFor="" className="">
                       ลงทะเบียนแล้ว
                     </label>
@@ -176,7 +176,7 @@ const AlumniesSearch = ({ showLogin }) => {
                   <span
                     className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
                   >
-                    <div className="w-3 h-3 bg-green-700 rounded-full ml-1"></div>
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
                     <label htmlFor="" className="">
                       ลงทะเบียนแล้ว
                     </label>
