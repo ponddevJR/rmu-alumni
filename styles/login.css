@@ -33,7 +33,7 @@
 }
 /* ตรวจสอบรายชื่อศิษย์เก่า */
 .form .submit-wrapper div button{
-    @apply visible lg:invisible text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:underline
+    @apply visible lg:invisible text-sm  text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:underline
 }
 
 /* เข้าสู่ระบบด้วยช่องทางอื่น */

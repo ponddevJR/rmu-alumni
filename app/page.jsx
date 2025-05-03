@@ -54,8 +54,8 @@ const FirstPage = () => {
               className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px]"
             />
             <div className="flex flex-col">
-              <label htmlFor="" className="text-lg lg:text-2xl font-bold text-[var(--color-text-main)]">RMU ALUMNI</label>
-              <label htmlFor="" className="text-[0.75rem] lg:text-lg">ระบบศิษย์เก่า มหาวิทยาลัยราชภัฏมหาสารคาม</label>
+              <label htmlFor="" className="text-xl lg:text-3xl font-bold text-[var(--color-text-main)]">RMU ALUMNI</label>
+              <label htmlFor="" className="text-[0.9rem] lg:text-lg">ระบบศิษย์เก่า มหาวิทยาลัยราชภัฏมหาสารคาม</label>
             </div>
           </div>
 
