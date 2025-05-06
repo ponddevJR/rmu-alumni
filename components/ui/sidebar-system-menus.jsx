@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import { FaGear, FaRightFromBracket } from "react-icons/fa6";
 
-const SidebarSystemMenu = ({ currentUser, pathName,closeMenu }) => {
+const SidebarSystemMenu = ({ currentUser, pathName,closeMenu,logout }) => {
   const menuItems = [
     { title: "บัญชีของฉัน", icon: <FaUserAlt />, url: "profile" },
     { title: "ตั้งค่า", icon: <FaGear />, url: "setting" },
@@ -28,7 +28,7 @@ const SidebarSystemMenu = ({ currentUser, pathName,closeMenu }) => {
             </Link>
           );
         })}
-        <button className="btn-danger">
+        <button onClick={logout} className="btn-danger">
             <FaRightFromBracket/> ออกจากระบบ
         </button>
       </div>

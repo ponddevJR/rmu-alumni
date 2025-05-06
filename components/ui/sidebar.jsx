@@ -1,28 +1,19 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FaBars, FaChartSimple, FaPeopleRoof, FaUsers, FaX } from "react-icons/fa6";
+import { FaBars, FaX } from "react-icons/fa6";
 import SidebarSystemMenu from "@/components/ui/sidebar-system-menus";
+import Loader from "@/components/ui/loader";
+import useSidebarController from "@/controllers/sidebar.controller";
+import "@/styles/sidebar.css"
 
-const Sidebar = () => {
-  // แสดงผลเมนูในขนาดหน้าจออื่นๆ
-  const [isOpen, setIsOpen] = useState(false);
-  // ตรวจสอบ URL
-  const url = usePathname();
-  const pathName = url.split("/")[1];
-
-  // เมนู
-  const menuItems = [
-    { title: "Dashboard", icon: <FaChartSimple />, url: "dashboard" },
-    { title: "จัดการข้อมูลศิษย์เก่า", icon: <FaUsers />, url: "alumnies" },
-    { title: "จัดการบุคคลากรและอาจารย์", icon: <FaPeopleRoof />, url: "personels" }
-  ];
-
+const Sidebar = ({ user,menuItems }) => {
+  const { isOpen, pathName, setIsOpen, handleLogout,isLoading } =
+    useSidebarController();
 
   return (
     <>
+    {isLoading && <Loader/>}
       {/* จัดการการแสดงผลเมนู */}
       <button onClick={() => setIsOpen(!isOpen)} className="btn-responsive">
         {isOpen ? <FaX /> : <FaBars />}
@@ -31,7 +22,7 @@ const Sidebar = () => {
       <aside
         className={`
             aside ${
-              isOpen ? "translate-x-0 z-10" : "z-[-1] translate-x-[-50rem]"
+              isOpen ? "translate-x-0 z-10" : "z-[-1] translate-x-[-60rem]"
             }
           `}
       >
@@ -64,7 +55,9 @@ const Sidebar = () => {
                 href={`/${menu.url}`}
                 onClick={() => setIsOpen(false)}
                 className={`menu-items ${
-                  pathName === menu.url ? "text-[var(--color-text-main)] shadow-sm border border-[var(--color-border)]" : ""
+                  pathName === menu.url
+                    ? "text-[var(--color-text-main)] shadow-sm border border-[var(--color-border)]"
+                    : ""
                 }`}
               >
                 {menu.icon} {menu.title}
@@ -77,6 +70,7 @@ const Sidebar = () => {
         <SidebarSystemMenu
           pathName={pathName}
           closeMenu={() => setIsOpen(false)}
+          logout={handleLogout}
         />
       </aside>
     </>

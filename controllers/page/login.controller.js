@@ -36,8 +36,7 @@ export default function useLoginController() {
     setIsLoading(true);
     try {
       const res = await AuthServices.login({
-        cardId:loginForm.cardId,
-        password:loginForm.password,
+        ...loginForm,
         // เช็คว่าการเข้าสู่ระบบเป็นใคร
         isStd:isSTDLogin
       });
@@ -47,8 +46,8 @@ export default function useLoginController() {
         return;
       }
 
-      AlertDialog.successDialog("เข้าสู่ระบบสำเร็จ");
       redirect.push("/dashboard");
+      AlertDialog.successDialog("เข้าสู่ระบบสำเร็จ");
 
     } catch (error) {
       console.error(error);
@@ -68,5 +67,6 @@ export default function useLoginController() {
     handleInput,
     handleLogin,
     isLoading,
+    redirect
   };
 }

@@ -9,11 +9,18 @@ export const AuthServices = {
       { withCredentials: true }
     );
   },
-  //   ตรวจสอบการเข้าสู่ระบบ
+  //   ตรวจสอบการเข้าสู่ระบบ ศิษย์เก่า/อาจารย์
   checkLogin: async () => {
     return await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/check-login`,
       { withCredentials: true }
     );
+  },
+
+  // ออกจากระบบ
+  logout: async () => {
+    return await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+      withCredentials: true,
+    });
   },
 };

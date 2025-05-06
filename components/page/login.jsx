@@ -12,7 +12,8 @@ import { FaIdCardAlt, FaSignInAlt } from "react-icons/fa";
 import useLoginController from "@/controllers/page/login.controller";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import Loader from "@/components/ui/loader";
+import { redirect } from "next/dist/server/api-utils";
 
 const LoginComponents = ({ showSearchAlumnies }) => {
   const {
@@ -24,12 +25,12 @@ const LoginComponents = ({ showSearchAlumnies }) => {
     loginForm,
     isLoading,
     handleLogin,
+    redirect,
   } = useLoginController();
-
 
   return (
     <>
-    {isLoading && <div className="fixed top-0 left-0 w-full h-full z-50"></div>}
+      {isLoading && <Loader />}
       {/* greeting user */}
       <div className="greeting-wrapper">
         <label htmlFor="" className="text-3xl lg:text-4xl">
@@ -112,8 +113,13 @@ const LoginComponents = ({ showSearchAlumnies }) => {
               ตรวจสอบรายชื่อศิษย์เก่า
             </label>
           </div>
-
-          <button className="btn-primary w-full">
+          {/* เข้าสู่ระบบ */}
+          <button
+            className="flex items-center gap-2 py-3 lg:py-4 justify-center
+            rounded-lg text-[var(--color-text-normal)] 
+            bg-[var(--color-text-main)] hover:px-12 
+            hover:shadow-md  hover:shadow-gray-500 w-full"
+          >
             <FaSignInAlt /> {isLoading ? "กำลังตรวจสอบ..." : "เข้าสู่ระบบ"}
           </button>
         </div>
@@ -142,6 +148,7 @@ const LoginComponents = ({ showSearchAlumnies }) => {
             <FaGithub />
           </button> */}
           <button
+            onClick={() => redirect.push("/admin-login")}
             title="สำหรับผู้ดูแลระบบ/เจ้าหน้าที่"
             className="text-[var(--color-text-main)]"
           >

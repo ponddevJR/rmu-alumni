@@ -1,11 +1,16 @@
+// เข้าสู่ระบบสำหรับศิษย์เก่า นักศึกษาและอาจารย์
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Login from "@/components/page/login";
 import AlumniesSearch from "@/components/page/alumnies-search.jsx";
 import { AuthServices } from "@/services/auth";
+import { useRouter } from "next/navigation";
 
 const FirstPage = () => {
+  
+  const redirect = useRouter();
+
   // แสดงผล dialog
   const [showDialog, setShowDialog] = useState(false);
   // แสดง components ค้นหารายชื่อศิษย์เก่า
@@ -15,7 +20,10 @@ const FirstPage = () => {
   const checkLogin = async () => {
     try {
       const res = await AuthServices.checkLogin();
-      if (res.data.user) {
+      const role = res.data.user.role;
+      if (role === "user") {
+        return redirect.push("/user-profile");
+      }else{
         return redirect.push("/dashboard");
       }
     } catch (error) {
@@ -35,7 +43,7 @@ const FirstPage = () => {
   }, [showDialog]);
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-tl from-[var(--color-secondary)] to-[var(--color-bg)]">
+    <div className="w-screen h-screen flex items-center justify-center relative bg-gradient-to-tl from-[var(--color-secondary)] to-[var(--color-bg)] overflow-hidden">
       <video
         className={`fixed top-0 left-0 lg:w-full  h-full object-cover transition-all duration-800`}
         src="/assets/rmu_vdo.mp4"
@@ -50,13 +58,12 @@ const FirstPage = () => {
         } z-10 transition-all duration-500`}
       />
 
-      {/* พื้นหลังกระจก */}
       <div
         className={`
         ${showDialog ? "opacity-100  z-50" : "z-[-1] opacity-0"}
         transition-all duration-800 
-        p-8 py-6 rounded-md shadow-lg shadow-gray-700 
-        flex gap-8 
+        px-8 py-6 rounded-md shadow-lg shadow-gray-700 
+        flex gap-5 
         bg-white
         border-b border-white/30  w-7/8 lg:w-1/2
       `}

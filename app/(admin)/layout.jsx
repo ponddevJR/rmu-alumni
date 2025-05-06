@@ -1,14 +1,57 @@
-import Sidebar from "../../components/ui/sidebar";
-import "@/styles/sidebar.css"
 
-const Layout = ({children}) => {
+// Layout เจ้าหน้าที่/ผู้ดูแลระบบ
+"use client";
+import { AuthServices } from "@/services/auth";
+import Sidebar from "../../components/ui/sidebar";
+import "@/styles/sidebar.css";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaChartSimple, FaPeopleRoof, FaUsers } from "react-icons/fa6";
+import Header from "@/components/ui/header"
+
+const Layout = ({ children }) => {
+  const redirect = useRouter();
+
+  const [user,setUser] = useState(null);
+
+  // ตรวจสอบการเข้าสู่ระบบ ใช่เจ้าหน้าที่หรือผู้ดูแลหรือไม่
+  const checkLogin = async () => {
+    try {
+      const res = await AuthServices.checkLogin();
+      if(res.data.user.role === "admin"){
+        setUser(res.data.user);
+      }else{
+        return redirect.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+      redirect.push("/");
+    }
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
+    // เมนู
+    const menuItems = [
+      { title: "Dashboard", icon: <FaChartSimple />, url: "dashboard" },
+      { title: "จัดการข้อมูลศิษย์เก่า", icon: <FaUsers />, url: "alumnies" },
+      {
+        title: "จัดการบุคคลากรและอาจารย์",
+        icon: <FaPeopleRoof />,
+        url: "personels",
+      },
+    ];
+
   return (
     <div className="w-screen overflow-x-hidden  h-screen flex justify-end bg-gradient-to-bl from-[var(--color-border)] to-[var(--color-bg)]">
-        <Sidebar/>
-        <main className="w-full overflow-y-auto mt-6 md:w-4/5 md:mt-0 flex flex-col h-full py-3 px-5">
-            {children}
-        </main>
+      <Sidebar user={user} menuItems={menuItems}/>
+      <main className="w-full overflow-y-auto mt-6 lg:w-4/5 lg:mt-0 flex flex-col h-full py-3 px-5">
+        <Header user={user}/>
+        {children}
+      </main>
     </div>
-  )
-}
-export default Layout
+  );
+};
+export default Layout;
