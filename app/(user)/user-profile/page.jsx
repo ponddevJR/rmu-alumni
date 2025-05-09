@@ -49,7 +49,7 @@ const ProfilePage = () => {
       </div>
 
       {/* profile-components */}
-      <div className="w-full h-full">
+      <div className="w-full h-fit">
         {menuIndexActive === 0 ? (
           // แสดงข้อมูลส่วนตัว
           <AlumniInfo />

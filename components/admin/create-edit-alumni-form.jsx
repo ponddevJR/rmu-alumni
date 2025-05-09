@@ -1,10 +1,8 @@
 import Select from "@/components/ui/react-select";
-import useCreateEditAlumniController from "@/controllers/admin/alumnies/create-edit-alumni.controller";
+import {years} from "@/functions/year-select";
 import { FaCheck } from "react-icons/fa6";
 
 const CreateEditAlumniForm = ({ alumni }) => {
-  const { years } = useCreateEditAlumniController();
-
 
   return (
     <>

@@ -30,7 +30,7 @@ const SortMenuDialog = ({menuItems,icon = <FaCaretDown/>,title = "เรีย�
       <div className="relative inline-block">
       <button
         ref={buttonRef}
-        className={`text-xs lg:text-[1rem] p-2 shadow-md shadow-gray-300 border border-gray-400 rounded-sm active:scale-90 ${
+        className={`btn-other ${
           showSortDialog ? "bg-blue-600 text-white" : ""
         }`}
         onClick={() => setShowSortDialog(!showSortDialog)}
@@ -40,7 +40,7 @@ const SortMenuDialog = ({menuItems,icon = <FaCaretDown/>,title = "เรีย�
       </button>
       <div
         ref={menuRef}
-        className={`transition-all duration-300 absolute top-full left-[-6rem] mt-2 bg-white border border-gray-300 shadow-md w-[150px] rounded-md overflow-hidden ${
+        className={`transition-all duration-300 absolute top-full right-[-6rem] lg:left-[-6rem] mt-2 bg-white border border-gray-300 shadow-md w-[150px] rounded-md overflow-hidden ${
           showSortDialog ? "z-10 opacity-100" : "z-[-1] opacity-0"
         }`}
       >
@@ -48,7 +48,7 @@ const SortMenuDialog = ({menuItems,icon = <FaCaretDown/>,title = "เรีย�
           <button
             key={index}
             onClick={item.onClick}
-            className="p-2 px-5 bg-gray-900 text-white flex text-xs lg:text-sm w-full hover:bg-blue-600"
+            className="p-2 px-5 bg-gray-900 text-white flex text-xs w-full hover:bg-blue-600"
           >
             {item.text}
           </button>

@@ -18,13 +18,15 @@ import {
   FaLine,
   FaMapLocationDot,
   FaPhone,
+  FaPlus,
   FaUserGraduate,
   FaVenusMars,
 } from "react-icons/fa6";
+import AlumniWorksHistory from "./alumni-works-history";
 
 const AlumniInfo = ({ alumni }) => {
   return (
-    <div className="flex lg:flex-row flex-col w-full h-full pb-5">
+    <div className="flex lg:flex-row flex-col w-full h-full pb-5 ">
       {/* left section */}
       <div className="w-full flex flex-col lg:h-full lg:w-1/3 lg:border-r border-gray-300">
         {/* รูปภาพ */}
@@ -142,15 +144,14 @@ const AlumniInfo = ({ alumni }) => {
         </div>
       </div>
 
-
       {/* right-section*/}
       <div className="w-full lg:w-3/4 lg:h-full p-3">
         {/* ข้อมูลส่วนตัวและที่อยู่ที่ติดต่อได้ */}
-        <div className="w-full flex lg:flex-row flex-col-reverse text-sm lg:text-[0.8rem]">
+        <div className="lg:border-b lg:border-gray-300 w-full flex lg:flex-row flex-col-reverse text-sm lg:text-[0.8rem]">
           {/* ที่อยู่ที่ติดต่อได้ */}
-          <div className="lg:w-1/2 lg:border-r lg:border-gray-300 mt-3 pb-5 lg:border-none border-b border-gray-300 flex flex-col text-sm lg:text-[0.8rem] gap-3 px-3">
+          <div className="lg:w-1/3 mt-3 pb-5 lg:border-r lg:border-b-0 border-b lg:mx-5 border-gray-300 flex flex-col text-sm lg:text-[0.8rem] gap-3 px-3">
             <label htmlFor="" className="font-bold lg:text-[1rem]">
-            Contact Address
+              Contact Address
             </label>
             {/* ที่อยู่ */}
             <div className="flex items-center gap-2">
@@ -192,10 +193,9 @@ const AlumniInfo = ({ alumni }) => {
               <p className="text-gray-500">รหัสไปรษณีย์:</p>
               <p>44000</p>
             </div>
-            
           </div>
           {/* ข้อมูลส่วนตัว */}
-          <div className="lg:w-1/2 w-full  mt-3 pb-5 lg:border-none border-b border-gray-300 flex flex-col text-sm lg:text-[0.8rem] gap-3 px-3">
+          <div className="lg:w-1/2 lg:ml-2 w-full  mt-3 pb-5 lg:border-none border-b border-gray-300 flex flex-col text-sm lg:text-[0.8rem] gap-3 px-3">
             <label htmlFor="" className="font-bold lg:text-[1rem]">
               About
             </label>
@@ -221,12 +221,34 @@ const AlumniInfo = ({ alumni }) => {
                 <FaBriefcase />
               </p>
               <p className="text-gray-500">สถานภาพการทำงาน:</p>
-              <p className={`transition-all cursor-pointer hover:shadow-md hover:shadow-gray-300 flex items-center gap-1.5 p-1 px-2 rounded-md ${alumni?.currentStatus ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}`}>
-                <span className={`w-1.5 h-1.5 rounded-full ${alumni?.currentStatus ? "bg-green-500" : "bg-red-500"}`}></span>
+              <p
+                className={`transition-all cursor-pointer hover:shadow-md hover:shadow-gray-300 flex items-center gap-1.5 p-1 px-2 rounded-md ${
+                  alumni?.currentStatus
+                    ? "bg-green-200 text-green-700"
+                    : "bg-red-200 text-red-700"
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    alumni?.currentStatus ? "bg-green-500" : "bg-red-500"
+                  }`}
+                ></span>
                 {alumni?.currentStatus ? "มีงานทำ" : "ว่างงาน"}
               </p>
             </div>
           </div>
+        </div>
+
+        {/* ประวัตการทำงานคร่าวๆ */}
+        <div className="w-full mt-5 px-3 lg:ml-5">
+          <h2 className="font-bold text-sm lg:text-[1rem] flex items-center justify-between">
+            Job Information
+            <button className="btn-primary">
+              <FaPlus/>
+              <p className="hidden lg:inline-block">เพิ่มข้อมูล</p>
+            </button>
+          </h2>
+          <AlumniWorksHistory />
         </div>
       </div>
     </div>

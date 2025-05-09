@@ -122,6 +122,307 @@ const AlumniesSearch = ({ showLogin }) => {
                 </div>
               </span>
 
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+              {/* ข้อมูลศิษย์เก่า */}
+              <span className="list">
+                {/* รูปภาพ */}
+                <div className="image-wrapper">
+                  <Image
+                    alt="alumni-image"
+                    src="/assets/no_image.png"
+                    width={50}
+                    height={50}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/*รายละเอียด  */}
+                <div className="info-wrapper">
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      รหัสนักศึกษา:{" "}
+                    </label>
+                    <p>663170010324</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      ชื่อ-นามสกุล:{" "}
+                    </label>
+                    <p>ปฐมพร วงสุวรรณ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      คณะ:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+                  <span className="detail-wrapper">
+                    <label htmlFor="" className="font-bold">
+                      สาขา:{" "}
+                    </label>
+                    <p>เทคโนโลยีสารสนเทศ</p>
+                  </span>
+
+                  <div
+                    className={`p-1 rounded-xl bg-green-300 flex items-center gap-1 text-xs`}
+                  >
+                    <div className="w-2 h-2 bg-green-700 rounded-full ml-1"></div>
+                    <label htmlFor="" className="">
+                      ลงทะเบียนแล้ว
+                    </label>
+                  </div>
+                </div>
+              </span>
+
             </div>
           </>
         ) : null}

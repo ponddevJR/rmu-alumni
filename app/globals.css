@@ -34,10 +34,14 @@ button{
 .btn-secondary{
   @apply py-2 px-3 rounded-md text-[0.9rem] shadow-md shadow-gray-400 border border-[var(--color-border)]
 }
+/* ปุ่มอื่นๆ */
+.btn-other{
+  @apply text-xs lg:text-[1rem] p-2 shadow-md shadow-gray-300 border border-gray-400 rounded-sm active:scale-90
+}
 
 /* ปุ่มลบ/ออกจากระบบ */
 .btn-danger{
-  @apply flex items-center gap-4 py-2 px-4 bg-red-500 transition-all duration-200 hover:bg-red-700 rounded-md text-white cursor-pointer
+  @apply flex items-center gap-2 py-2 px-4 bg-red-500 transition-all duration-200 hover:bg-red-700 rounded-md text-white cursor-pointer
 }
 
 /* input */
@@ -46,5 +50,31 @@ button{
    focus:ring focus:ring-[var(--color-primary)] focus:rounded-md transition-all
 }
 .input-control-secondary{
-  @apply p-2 outline-none rounded-md w-full border border-gray-400
+  @apply p-2 outline-none rounded-md border border-gray-400
+}
+
+/* ตารางหลัก */
+.table-main{
+  @apply w-full text-sm
+}
+.table-main thead tr{
+  @apply shadow-md border-b border-gray-400
+}
+.table-main thead tr th{
+  @apply py-2.5 bg-sky-200  font-normal sticky top-0 text-start
+}
+.table-main thead tr th:first-of-type{
+  @apply rounded-tl-lg pl-5
+}
+.table-main thead tr th:last-of-type{
+  @apply rounded-tr-lg text-center
+}
+.table-main tbody tr{
+  @apply shadow-xs hover:bg-gray-100 cursor-pointer transition-all duration-200 border-b border-gray-100
+}
+.table-main tbody tr:last-of-type td:first-of-type{
+  @apply rounded-bl-lg
+}
+.table-main tbody tr:last-of-type td:last-of-type{
+  @apply rounded-br-lg
 }

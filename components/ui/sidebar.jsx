@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBars, FaX } from "react-icons/fa6";
 import SidebarSystemMenu from "@/components/ui/sidebar-system-menus";
-import Loader from "@/components/ui/loader";
+import Loading from "@/components/ui/loader";
 import useSidebarController from "@/controllers/sidebar.controller";
 import "@/styles/sidebar.css"
 
@@ -13,7 +13,7 @@ const Sidebar = ({ user,menuItems }) => {
 
   return (
     <>
-    {isLoading && <Loader/>}
+    {isLoading && <Loading/>}
       {/* จัดการการแสดงผลเมนู */}
       <button onClick={() => setIsOpen(!isOpen)} className="btn-responsive">
         {isOpen ? <FaX /> : <FaBars />}

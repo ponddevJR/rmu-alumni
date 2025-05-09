@@ -21,10 +21,10 @@ const Layout = ({ children }) => {
   const checkLogin = async () => {
     try {
       const res = await AuthServices.checkLogin();
-      if (res.data.user.role !== "user") {
-        return redirect.push("/");
-      } else {
+      if (res?.data?.user?.role === "user") {
         setUser(res.data.user);
+      } else {
+        return redirect.push("/")
       }
     } catch (error) {
       console.error(error);
