@@ -9,6 +9,7 @@ export default function useUserEditProfileController(){
 
     return{
         previewProfile,
-        handleImageInput
+        handleImageInput,
+        setPreviewProfile
     }
 }

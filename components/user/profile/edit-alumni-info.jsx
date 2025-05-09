@@ -12,13 +12,14 @@ import {
   FaMapLocationDot,
   FaPhone,
   FaRotateRight,
+  FaTrash,
   FaUpload,
 } from "react-icons/fa6";
 import useUserEditProfileController from "../../../controllers/user/edit-profile.controller";
 
 const EditAlumniInfo = ({ alumni }) => {
-
-  const {handleImageInput,previewProfile} = useUserEditProfileController();
+  const { handleImageInput, previewProfile, setPreviewProfile } =
+    useUserEditProfileController();
 
   return (
     <div className="text-[0.9rem] mt-5 w-full grid grids-cols-1 lg:grid-cols-2 gap-10 gap-y-5">
@@ -32,20 +33,37 @@ const EditAlumniInfo = ({ alumni }) => {
           <div className="w-[150px] h-[120px] border border-gray-300 rounded-md overflow-hidden">
             <Image
               alt="user-profile"
-              src={previewProfile !== "" ? previewProfile : "/assets/no_image.png"}
+              src={
+                previewProfile !== "" ? previewProfile : "/assets/no_image.png"
+              }
               width={100}
               height={100}
               className="w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-1">
-            <input onChange={handleImageInput} type="file" className="hidden" id="img-input" />
-            <label
-              htmlFor="img-input"
-              className="transition-all btn-primary cursor-pointer"
-            >
-              <FaUpload /> {previewProfile ? "เปลี่ยนรูป" : "อัปโหลด"}
-            </label>
+            <input
+              onChange={handleImageInput}
+              type="file"
+              className="hidden"
+              id="img-input"
+            />
+            <div className="flex items-center gap-2">
+              <label
+                htmlFor="img-input"
+                className="transition-all btn-primary cursor-pointer"
+              >
+                <FaUpload /> {previewProfile ? "เปลี่ยนรูป" : "อัปโหลด"}
+              </label>
+              {previewProfile !== "" && (
+                <button
+                  onClick={() => setPreviewProfile("")}
+                  className="btn-danger"
+                >
+                  <FaTrash /> ลบรูป
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -181,7 +199,7 @@ const EditAlumniInfo = ({ alumni }) => {
                 htmlFor=""
                 className="text-[var(--color-primary)] mt-2 flex items-center gap-1"
               >
-                <FaMailBulk/>
+                <FaMailBulk />
               </label>
               <input
                 type="text"
@@ -196,10 +214,10 @@ const EditAlumniInfo = ({ alumni }) => {
       {/* ปุ่ม */}
       <div className="w-full flex items-center justify-end gap-3 mt-1 pb-5">
         <button className="btn-primary">
-          <FaCheck/> บันทึก
+          <FaCheck /> บันทึก
         </button>
         <button className="btn-danger">
-          <FaRotateRight/> ล้างข้อมูล
+          <FaRotateRight /> ล้างข้อมูล
         </button>
       </div>
     </div>
