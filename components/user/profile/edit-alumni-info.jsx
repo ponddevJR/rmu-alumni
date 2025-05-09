@@ -14,8 +14,12 @@ import {
   FaRotateRight,
   FaUpload,
 } from "react-icons/fa6";
+import useUserEditProfileController from "../../../controllers/user/edit-profile.controller";
 
 const EditAlumniInfo = ({ alumni }) => {
+
+  const {handleImageInput,previewProfile} = useUserEditProfileController();
+
   return (
     <div className="text-[0.9rem] mt-5 w-full grid grids-cols-1 lg:grid-cols-2 gap-10 gap-y-5">
       {/* รูปภาพ */}
@@ -28,19 +32,19 @@ const EditAlumniInfo = ({ alumni }) => {
           <div className="w-[150px] h-[120px] border border-gray-300 rounded-md overflow-hidden">
             <Image
               alt="user-profile"
-              src={alumni?.profileImage || "/assets/no_image.png"}
+              src={previewProfile !== "" ? previewProfile : "/assets/no_image.png"}
               width={100}
               height={100}
               className="w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-1">
-            <input type="file" className="hidden" id="img-input" />
+            <input onChange={handleImageInput} type="file" className="hidden" id="img-input" />
             <label
               htmlFor="img-input"
               className="transition-all btn-primary cursor-pointer"
             >
-              <FaUpload /> อัปโหลด
+              <FaUpload /> {previewProfile ? "เปลี่ยนรูป" : "อัปโหลด"}
             </label>
           </div>
         </div>
@@ -190,7 +194,7 @@ const EditAlumniInfo = ({ alumni }) => {
       </div>
       <div className=""></div>
       {/* ปุ่ม */}
-      <div className="w-full flex items-center justify-end gap-3 mt-5 pb-5">
+      <div className="w-full flex items-center justify-end gap-3 mt-1 pb-5">
         <button className="btn-primary">
           <FaCheck/> บันทึก
         </button>
